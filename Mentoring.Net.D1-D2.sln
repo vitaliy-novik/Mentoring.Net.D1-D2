@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineStoreProduct", "Onlin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineStoreProduct.Tests", "OnlineStoreProduct.Tests\OnlineStoreProduct.Tests.csproj", "{8642C8FD-1A44-4D4F-BF74-2C0DFA260392}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.BCL", "2.BCL", "{E2D22BF1-C332-407F-835A-E7C6F7F51986}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Attributes", "Attributes\Attributes.csproj", "{E6516F59-9BF2-4BD3-8C05-76DD0F9F5B5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Attributes.Tests", "Attributes.Tests\Attributes.Tests.csproj", "{A14557AA-C78A-4013-89D7-9549FA05E9B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +29,14 @@ Global
 		{8642C8FD-1A44-4D4F-BF74-2C0DFA260392}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8642C8FD-1A44-4D4F-BF74-2C0DFA260392}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8642C8FD-1A44-4D4F-BF74-2C0DFA260392}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6516F59-9BF2-4BD3-8C05-76DD0F9F5B5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6516F59-9BF2-4BD3-8C05-76DD0F9F5B5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6516F59-9BF2-4BD3-8C05-76DD0F9F5B5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6516F59-9BF2-4BD3-8C05-76DD0F9F5B5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A14557AA-C78A-4013-89D7-9549FA05E9B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A14557AA-C78A-4013-89D7-9549FA05E9B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A14557AA-C78A-4013-89D7-9549FA05E9B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A14557AA-C78A-4013-89D7-9549FA05E9B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,5 +44,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{98B75BD0-F16D-4DC5-8CBF-D8D90E45BDD6} = {75FDC8A8-CE04-4C54-A396-10AFD8766BA2}
 		{8642C8FD-1A44-4D4F-BF74-2C0DFA260392} = {75FDC8A8-CE04-4C54-A396-10AFD8766BA2}
+		{E6516F59-9BF2-4BD3-8C05-76DD0F9F5B5C} = {E2D22BF1-C332-407F-835A-E7C6F7F51986}
+		{A14557AA-C78A-4013-89D7-9549FA05E9B8} = {E2D22BF1-C332-407F-835A-E7C6F7F51986}
 	EndGlobalSection
 EndGlobal
