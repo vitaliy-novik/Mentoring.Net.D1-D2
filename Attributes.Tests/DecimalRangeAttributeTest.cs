@@ -10,7 +10,7 @@ namespace Attributes.Tests
 		[ExpectedException(typeof(InvalidOperationException))]
 		public void IsValid_NullObject_ThrowsException()
 		{
-			DecimalRangeAttribute attribute = new DecimalRangeAttribute(0m, 1m);
+			DecimalRangeAttribute attribute = new DecimalRangeAttribute(0, 1);
 
 			attribute.IsValid(null);
 		}
@@ -19,16 +19,16 @@ namespace Attributes.Tests
 		[ExpectedException(typeof(InvalidOperationException))]
 		public void IsValid_NotDecimal_ThrowsException()
 		{
-			DecimalRangeAttribute attribute = new DecimalRangeAttribute(0m, 2m);
+			DecimalRangeAttribute attribute = new DecimalRangeAttribute(0, 2);
 
 			attribute.IsValid(2);
 		}
 
 		[TestMethod]
-		[ExpectedException(typeof(ArgumentException))]
+		[ExpectedException(typeof(InvalidOperationException))]
 		public void IsValid_MaxLessThanMin_ThrowsException()
 		{
-			DecimalRangeAttribute attribute = new DecimalRangeAttribute(2.1m, 2m);
+			DecimalRangeAttribute attribute = new DecimalRangeAttribute(2.1, 2);
 
 			attribute.IsValid(2);
 		}
@@ -36,7 +36,7 @@ namespace Attributes.Tests
 		[TestMethod]
 		public void IsValid_ValueOutOfRange_ReturnsFalse()
 		{
-			DecimalRangeAttribute attribute = new DecimalRangeAttribute(2m, 2m);
+			DecimalRangeAttribute attribute = new DecimalRangeAttribute(2, 2);
 
 			attribute.IsValid(2.002m);
 		}
@@ -44,15 +44,16 @@ namespace Attributes.Tests
 		[TestMethod]
 		public void IsValid_ValueInRange_ReturnsTrue()
 		{
-			DecimalRangeAttribute attribute = new DecimalRangeAttribute(2m, 2.1m);
+			DecimalRangeAttribute attribute = new DecimalRangeAttribute(2, 2.1);
 
 			attribute.IsValid(2.15m);
 		}
 
 		[TestMethod]
+		[ExpectedException(typeof(OverflowException))]
 		public void IsValid_ValueOnBorder_ReturnsTrue()
 		{
-			DecimalRangeAttribute attribute = new DecimalRangeAttribute(decimal.MinValue, decimal.MaxValue);
+			DecimalRangeAttribute attribute = new DecimalRangeAttribute(double.MinValue, double.MaxValue);
 
 			attribute.IsValid(decimal.MaxValue);
 		}
