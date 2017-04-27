@@ -1,11 +1,14 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 
 namespace Attributes
 {
 	[AttributeUsage(AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter, AllowMultiple = false)]
 	public class DecimalRangeAttribute : ValidationAttribute
 	{
+		private const string DefaultErrorMessage = "The field {0} must be between {1} and {2}.";
+
 		public decimal Min { get; set; }
 
 		public decimal Max { get; set; }
@@ -37,6 +40,16 @@ namespace Attributes
 			decimal decimalValue = (decimal)value;
 
 			return decimalValue >= this.Min && decimalValue <= this.Max;
+		}
+
+		public override string FormatErrorMessage(string name)
+		{
+			if (string.IsNullOrEmpty(ErrorMessage))
+			{
+				return String.Format(CultureInfo.CurrentCulture, DefaultErrorMessage, name, this.Min, this.Max);
+			}
+
+			return String.Format(CultureInfo.CurrentCulture, ErrorMessage, name, this.Min, this.Max);
 		}
 
 	}
