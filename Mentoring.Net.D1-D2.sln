@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FibonacciNumbers", "Fibonac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FibonacciNumbers.Tests", "FibonacciNumbers.Tests\FibonacciNumbers.Tests.csproj", "{F5D37826-3D04-4E36-BE9C-09B1C9A18DDF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExceptionHandling", "ExceptionHandling", "{B6D45C1D-B507-4DF0-A17A-EE1D91E18FBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionHandling", "ExceptionHandling\ExceptionHandling.csproj", "{2213ECD1-0FE9-45F5-A5BB-B6837B487764}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,10 @@ Global
 		{F5D37826-3D04-4E36-BE9C-09B1C9A18DDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5D37826-3D04-4E36-BE9C-09B1C9A18DDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5D37826-3D04-4E36-BE9C-09B1C9A18DDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2213ECD1-0FE9-45F5-A5BB-B6837B487764}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2213ECD1-0FE9-45F5-A5BB-B6837B487764}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2213ECD1-0FE9-45F5-A5BB-B6837B487764}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2213ECD1-0FE9-45F5-A5BB-B6837B487764}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,5 +70,6 @@ Global
 		{A14557AA-C78A-4013-89D7-9549FA05E9B8} = {E2D22BF1-C332-407F-835A-E7C6F7F51986}
 		{2A8735E8-EA8D-40C3-AF93-EA441298EF94} = {878039B8-8FE2-4024-BD7E-3FDB0CE803F5}
 		{F5D37826-3D04-4E36-BE9C-09B1C9A18DDF} = {878039B8-8FE2-4024-BD7E-3FDB0CE803F5}
+		{2213ECD1-0FE9-45F5-A5BB-B6837B487764} = {B6D45C1D-B507-4DF0-A17A-EE1D91E18FBC}
 	EndGlobalSection
 EndGlobal
