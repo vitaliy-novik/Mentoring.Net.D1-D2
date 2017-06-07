@@ -1,25 +1,35 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Reflection
 {
 	public static class ReflectionUtils
 	{
-		public static List<T> CreateList<T>()
+		public static IList CreateGenericList(Type type)
 		{
-			Type paramType = typeof(T);
-			Type listType = typeof(List<T>);
+			Type listType = typeof(List<>);
+			Type genericListType = listType.MakeGenericType(type);
 
-			//Type constructedListType = listType.MakeGenericType(paramType);
-			List<T> instance = (List<T>)Activator.CreateInstance(listType);
-
-			return instance;
+			return (IList)Activator.CreateInstance(genericListType);
 		}
 
-		public static void AddListItem<T>(List<T> list, T item)
+		public static object CreateInstance(Type type, params object[] args)
+		{
+			//try
+			//{
+				return Activator.CreateInstance(type, args);
+			//}
+			//catch (Exception e)
+			//{
+			//	throw;
+			//}
+		}
+
+		public static void AddWithReflection(this IList list, object item)
 		{
 			Type listType = list.GetType();
-			listType.GetMethod("Add").Invoke(list, new [] { (object)item });
+			listType.GetMethod("Add").Invoke(list, new [] { item });
 		}
 	}
 }
