@@ -7,8 +7,15 @@ namespace Reflection.Tests
 	[TestClass]
 	public class ReflectionUtilsTest
 	{
-		Type stringType = Type.GetType("System.String");
-		Type intType = Type.GetType("System.Int32");
+		readonly Type stringType = Type.GetType("System.String");
+		readonly Type intType = Type.GetType("System.Int32");
+		private bool methodInvocationFlag;
+
+		[TestInitialize]
+		public void Initialize()
+		{
+			this.methodInvocationFlag = false;
+		}
 
 		[TestMethod]
 		public void CreateList_Int()
@@ -62,6 +69,22 @@ namespace Reflection.Tests
 			var list = ReflectionUtils.CreateGenericList(this.stringType);
 
 			list.AddWithReflection(Activator.CreateInstance(this.intType));
+		}
+
+		[TestMethod]
+		public void SubscribeToEvent()
+		{
+			EventPublisher publisher = new EventPublisher();
+			ReflectionUtils.SubscribeToEvent(publisher, "TestEvent", this, "TestMethod");
+
+			publisher.RaiseEvent();
+
+			Assert.IsTrue(this.methodInvocationFlag);
+		}
+
+		public void TestMethod(object sender, EventArgs args)
+		{
+			this.methodInvocationFlag = true;
 		}
 	}
 }
