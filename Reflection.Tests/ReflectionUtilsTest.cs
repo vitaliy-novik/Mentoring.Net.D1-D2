@@ -21,25 +21,9 @@ namespace Reflection.Tests
 		[TestMethod]
 		public void CreateList_String()
 		{
-			var list = ReflectionUtils.CreateInstance(this.stringType);
+			var list = ReflectionUtils.CreateGenericList(this.stringType);
 
 			Assert.AreEqual(typeof(List<string>), list.GetType());
-		}
-
-		[TestMethod]
-		public void CreateInstance_Int()
-		{
-			var instance = ReflectionUtils.CreateInstance(this.intType);
-
-			Assert.AreEqual(typeof(int), instance.GetType());
-		}
-
-		[TestMethod]
-		public void CreateInstance_String()
-		{
-			var instance = ReflectionUtils.CreateInstance(this.stringType);
-
-			Assert.AreEqual(typeof(string), instance.GetType());
 		}
 
 		[TestMethod]
@@ -47,38 +31,37 @@ namespace Reflection.Tests
 		{
 			var list = ReflectionUtils.CreateGenericList(this.intType);
 			
-			list.AddWithReflection(4);
+			list.AddWithReflection(Activator.CreateInstance(this.intType));
 
-			Assert.IsTrue(list.Contains(4));
+			Assert.IsTrue(list.Contains(0));
 		}
 
 		[TestMethod]
 		[ExpectedException(typeof(ArgumentException))]
-		public void AddIWithReflection_Int_Throwexception()
+		public void AddIWithReflection_Int_ThrowException()
 		{
 			var list = ReflectionUtils.CreateGenericList(this.intType);
 
-			list.AddWithReflection("a");
+			list.AddWithReflection(stringType.GetMember("Empty"));
 		}
 
 		[TestMethod]
 		public void AddIWithReflection_String()
 		{
-			var stringType = Type.GetType("System.String");
 			var list = ReflectionUtils.CreateGenericList(this.stringType);
 
-			list.AddWithReflection("a");
+			list.AddWithReflection(Activator.CreateInstance(this.stringType, 'a', 3));
 
-			Assert.IsTrue(list.Contains("a"));
+			Assert.IsTrue(list.Contains("aaa"));
 		}
 
 		[TestMethod]
 		[ExpectedException(typeof(ArgumentException))]
-		public void AddIWithReflection_String_Throwexception()
+		public void AddIWithReflection_String_ThrowException()
 		{
 			var list = ReflectionUtils.CreateGenericList(this.stringType);
 
-			list.AddWithReflection(12);
+			list.AddWithReflection(Activator.CreateInstance(this.intType));
 		}
 	}
 }
